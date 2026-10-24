@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000639",
+  "name": "Alfred Toepfer Stiftung & Studienstiftung des deutschen Volkes: You and Europe Scholarship Programme",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The European Scholarship Programme You and Europe is aimed at European students wishing to complete a Master’s degree in Germany. “Europe” in this case is to be understood in its geographical entirety and thus independent of",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000639-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000639",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The European Scholarship Programme You and Europe is aimed at European students wishing to complete a Master’s degree in Germany. “Europe” in this case is to be understood in its geographical entirety and thus independent of",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The European Scholarship Programme You and Europe is aimed at European students wishing to complete a Master’s degree in Germany. “Europe” in this case is to be understood in its geographical entirety and thus independent of",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

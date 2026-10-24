@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-57650857",
+  "name": "Future Ukraine: Research Grants for Ukrainian Master´s students and researchers",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Research scholarships for very well qualified Ukrainian students and researchers working at universities in Ukraine, regardless of their current place of residence.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-57650857-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57650857",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Research scholarships for very well qualified Ukrainian students and researchers working at universities in Ukraine, regardless of their current place of residence.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Research scholarships for very well qualified Ukrainian students and researchers working at universities in Ukraine, regardless of their current place of residence.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

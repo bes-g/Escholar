@@ -7,7 +7,7 @@ from sqlalchemy.orm.attributes import flag_modified
 
 from app.eligibility import counts, evaluate_profile, profile_was_used
 from app.models import ApplicationPlan, Scholarship
-from app.plans import default_plan_name, plan_item_from_row, serialize_plan
+from app.plans import default_plan_name, plan_item_from_result, serialize_plan
 from app.profile import summary
 
 
@@ -122,20 +122,30 @@ def search_opportunities(db, keywords: str = "") -> dict:
     return {"ok": True, "count": len(opportunities), "opportunities": opportunities}
 
 
-def check_eligibility(db, profile: dict, opportunity_ids: list | None = None) -> dict:
-    rows = published_scholarships(db)
+def _checked(profile: dict, rows, requested: list | None = None) -> dict:
+    """One pass over the published rows. Time and result size are linear in rules checked."""
     known = {row.id for row in rows}
-    requested = opportunity_ids or []
-    unknown_ids = [item for item in requested if item not in known]
+    asked = requested or []
     results = evaluate_profile(profile, [scholarship_dict(row) for row in rows])
     return {
         "ok": True,
         "results": results,
         "counts": counts(results),
-        "unknown_ids": unknown_ids,
+        "unknown_ids": [item for item in asked if item not in known],
         "profile_used": profile_was_used(profile),
         "note": "Eligibility was computed in application code from the stored profile and catalog rules.",
     }
+
+
+def review_catalog(db, profile: dict) -> tuple[dict, dict]:
+    """Search and classify published scholarships with one query and one rule pass."""
+    rows = published_scholarships(db)
+    search = {"ok": True, "count": len(rows), "ids": [row.id for row in rows]}
+    return search, _checked(profile, rows)
+
+
+def check_eligibility(db, profile: dict, opportunity_ids: list | None = None) -> dict:
+    return _checked(profile, published_scholarships(db), opportunity_ids)
 
 
 def save_application_plan(db, session, arguments: dict) -> dict:
@@ -154,12 +164,17 @@ def save_application_plan(db, session, arguments: dict) -> dict:
                 "plan": serialize_plan(existing),
             }
 
-    rows = {row.id: row for row in published_scholarships(db)}
-    results = evaluate_profile(session.profile, [scholarship_dict(row) for row in rows.values()])
+    results = list(session.latest_eligibility or [])
+    if not results:
+        results = evaluate_profile(
+            session.profile,
+            [scholarship_dict(row) for row in published_scholarships(db)],
+        )
     results.sort(key=lambda item: item["opportunity_id"])
     session.latest_eligibility = results
     flag_modified(session, "latest_eligibility")
-    eligible_ids = [item["opportunity_id"] for item in results if item["status"] == "eligible"]
+    eligible = [item for item in results if item["status"] == "eligible"]
+    eligible_ids = [item["opportunity_id"] for item in eligible]
     if not eligible_ids:
         return {"ok": False, "error": "There is no eligible scholarship to save."}
 
@@ -168,7 +183,7 @@ def save_application_plan(db, session, arguments: dict) -> dict:
         requested = [requested]
     ignored = sorted(set(requested) - set(eligible_ids))
 
-    items = [plan_item_from_row(rows[item_id]) for item_id in eligible_ids]
+    items = [plan_item_from_result(item) for item in eligible]
     requested_name = (getattr(session, "requested_plan_name", None) or arguments.get("plan_name") or "").strip()
     plan_name = requested_name or default_plan_name(session.profile)
     plan = ApplicationPlan(

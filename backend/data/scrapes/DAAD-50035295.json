@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50035295",
+  "name": "University Summer Courses offered in Germany for Foreign Students and Graduates",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "DAAD scholarships for students taking Bachelor's and Master's degree courses in all subjects wishing to improve their German proficiency and cultural knowledge of the country.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50035295-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50035295",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "DAAD scholarships for students taking Bachelor's and Master's degree courses in all subjects wishing to improve their German proficiency and cultural knowledge of the country.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "DAAD scholarships for students taking Bachelor's and Master's degree courses in all subjects wishing to improve their German proficiency and cultural knowledge of the country.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

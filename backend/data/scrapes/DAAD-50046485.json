@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50046485",
+  "name": "University Winter Courses in Germany for Foreign Students and Graduates",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "DAAD scholarships for students, graduates and doctoral candidates to improve German language skills",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50046485-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50046485",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "DAAD scholarships for students, graduates and doctoral candidates to improve German language skills",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "DAAD scholarships for students, graduates and doctoral candidates to improve German language skills",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

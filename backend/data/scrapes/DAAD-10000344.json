@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000344",
+  "name": "Government Scholarships Programme Tunisia",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The programme is aimed at engineering students from Tunisia who wish to take a Bachelor or Master’s degree in Germany.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000344-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000344",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The programme is aimed at engineering students from Tunisia who wish to take a Bachelor or Master’s degree in Germany.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The programme is aimed at engineering students from Tunisia who wish to take a Bachelor or Master’s degree in Germany.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

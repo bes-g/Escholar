@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000119",
+  "name": "Foundation of German Business (sdw): Academic study sponsorship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Foundation of German Business (sdw) offers undergraduate and graduate students a vast number of opportunities ranging from various seminars and training programmes to financial support. Courses are held in German, so that candidates",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000119-C1",
+      "label": "Degree level is Bachelor",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Bachelor"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000119",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Foundation of German Business (sdw) offers undergraduate and graduate students a vast number of opportunities ranging from various seminars and training programmes to financial support. Courses are held in German, so that candidates",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Bachelor",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Foundation of German Business (sdw) offers undergraduate and graduate students a vast number of opportunities ranging from various seminars and training programmes to financial support. Courses are held in German, so that candidates",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

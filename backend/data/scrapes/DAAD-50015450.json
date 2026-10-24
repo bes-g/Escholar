@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50015450",
+  "name": "Overseas Scholarship Scheme for MSc leading to PhD",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Government Scholarship Programme Pakistan",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50015450-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50015450",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Government Scholarship Programme Pakistan",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Government Scholarship Programme Pakistan",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

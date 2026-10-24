@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50026397",
+  "name": "Helmut-Schmidt-Programme (Master’s Scholarships for Public Policy and Good Governance - PPGG)",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Support to aquire a Master’s degree in Master programmes of particular relevance for the social, political and economic development in the students’ country of origin",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50026397-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026397",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Support to aquire a Master’s degree in Master programmes of particular relevance for the social, political and economic development in the students’ country of origin",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Support to aquire a Master’s degree in Master programmes of particular relevance for the social, political and economic development in the students’ country of origin",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

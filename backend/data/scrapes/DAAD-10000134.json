@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000134",
+  "name": "Hans Böckler Foundation: PhD Fellowship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Hans Böckler Foundation is the institute of the German Federation of Trade Unions (DGB) to promote research and studies. The HSB awards fellowships to doctoral students with outstanding academic gifts who show commitment to labour",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000134-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000134",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Hans Böckler Foundation is the institute of the German Federation of Trade Unions (DGB) to promote research and studies. The HSB awards fellowships to doctoral students with outstanding academic gifts who show commitment to labour",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Hans Böckler Foundation is the institute of the German Federation of Trade Unions (DGB) to promote research and studies. The HSB awards fellowships to doctoral students with outstanding academic gifts who show commitment to labour",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

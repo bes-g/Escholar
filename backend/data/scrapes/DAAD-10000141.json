@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000141",
+  "name": "German Cancer Research Center (DKFZ): International PhD Programme",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "International students holding a Master’s degree in (molecular) biology, (bio-)chemistry, physics, mathematics, computational biology, computer science, epidemiology/public health studies and related subjects are invited to apply for the",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000141-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000141",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "International students holding a Master’s degree in (molecular) biology, (bio-)chemistry, physics, mathematics, computational biology, computer science, epidemiology/public health studies and related subjects are invited to apply for the",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "International students holding a Master’s degree in (molecular) biology, (bio-)chemistry, physics, mathematics, computational biology, computer science, epidemiology/public health studies and related subjects are invited to apply for the",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

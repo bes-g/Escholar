@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000128",
+  "name": "Bavarian Academic Center for Central, Eastern and Southeastern Europe: One-year scholarship programme sponsored by the Free State of Bavaria for graduates of Central, Eastern and S",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The one-year scholarships are intended for graduates from Bulgaria, Croatia, Czechia, Hungary, Poland, Romania, Serbia, Slovakia and Ukraine who plan to complete postgraduate studies (i.e. Master's programmes), PhDs or one-year research",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000128-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000128",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The one-year scholarships are intended for graduates from Bulgaria, Croatia, Czechia, Hungary, Poland, Romania, Serbia, Slovakia and Ukraine who plan to complete postgraduate studies (i.e. Master's programmes), PhDs or one-year research",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The one-year scholarships are intended for graduates from Bulgaria, Croatia, Czechia, Hungary, Poland, Romania, Serbia, Slovakia and Ukraine who plan to complete postgraduate studies (i.e. Master's programmes), PhDs or one-year research",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

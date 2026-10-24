@@ -182,3 +182,43 @@ def test_one_daad_scholarship_is_split_into_match_facts():
     assert "992 euros" in by_section["funding"]
     assert "992 euros" not in by_section["who_can_apply"]
     assert "Curriculum vitae" in by_section["documents"]
+
+
+def test_scraped_files_survive_startup_and_reload(client, tmp_path, monkeypatch):
+    from app.catalog import seed_catalog
+    from app.database import SessionLocal
+    from app.models import Scholarship
+    from app.scrapes import catalogue_records, load_scrapes, write_scrape
+
+    assert client.get("/api/catalog").status_code == 200
+    monkeypatch.setattr("app.scrapes.SCRAPE_DIR", tmp_path)
+    script = (
+        'var scholarships = TAFFY([{"sapProgid":99900001,'
+        '"programmnameEn":"Prussian Cultural Heritage Foundation: Grant Programme",'
+        '"introduction":{"en":"The programme enables academics to undertake research residencies."}}]);'
+    )
+    records = catalogue_records(script)
+    assert len(records) == 1
+    assert records[0]["id"] == "DAAD-99900001"
+    assert records[0]["source_url"].endswith("?detail=99900001")
+    write_scrape(records[0])
+
+    db = SessionLocal()
+    try:
+        seed_catalog(db)
+        assert db.get(Scholarship, "DAAD-99900001") is None
+        assert load_scrapes(db) == 1
+        kept = db.get(Scholarship, "DAAD-99900001")
+        assert kept is not None
+        assert kept.origin == "url"
+        assert kept.status == "draft"
+        seed_catalog(db)
+        assert db.get(Scholarship, "DAAD-99900001") is not None
+        assert load_scrapes(db) == 0
+    finally:
+        db.rollback()
+        row = db.get(Scholarship, "DAAD-99900001")
+        if row is not None:
+            db.delete(row)
+            db.commit()
+        db.close()

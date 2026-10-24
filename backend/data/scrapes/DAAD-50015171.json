@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50015171",
+  "name": "ERP Study Scholarships for Graduates of Economics and Business Administration",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "One-year DAAD scholarships as part of two-year Master's study programmes for countries in Eastern, Central Eastern and Southeastern Europe",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50015171-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50015171",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "One-year DAAD scholarships as part of two-year Master's study programmes for countries in Eastern, Central Eastern and Southeastern Europe",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "One-year DAAD scholarships as part of two-year Master's study programmes for countries in Eastern, Central Eastern and Southeastern Europe",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-57742130",
+  "name": "Study scholarships for STEM disciplines",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "DAAD scholarships for Master's degrees in innovation-driving STEM fields to support the qualification and employability of young academics and future professionals from developing and emerging countries.<br />",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-57742130-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57742130",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "DAAD scholarships for Master's degrees in innovation-driving STEM fields to support the qualification and employability of young academics and future professionals from developing and emerging countries.<br />",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "DAAD scholarships for Master's degrees in innovation-driving STEM fields to support the qualification and employability of young academics and future professionals from developing and emerging countries.<br />",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

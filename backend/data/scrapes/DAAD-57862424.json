@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-57862424",
+  "name": "Cooperation programme with Mexico (SECIHTI – Secretaría de Ciencia, Humanidades, Tecnología e Innovación) Master",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The aim of this joint scholarship programme of DAAD and SECIHTI is to support the qualification and employability of young academics and future professionals from Mexico.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-57862424-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57862424",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The aim of this joint scholarship programme of DAAD and SECIHTI is to support the qualification and employability of young academics and future professionals from Mexico.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The aim of this joint scholarship programme of DAAD and SECIHTI is to support the qualification and employability of young academics and future professionals from Mexico.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

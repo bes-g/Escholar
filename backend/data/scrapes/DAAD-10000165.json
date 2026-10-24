@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000165",
+  "name": "Gerda Henkel Foundation: PhD Scholarships",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The PhD scholarships support highly qualified junior academics from the historical sciences with excellent academic standing and brilliant examination results who show unusual promise for their doctoral theses. Applications can be submitted",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000165-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000165",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The PhD scholarships support highly qualified junior academics from the historical sciences with excellent academic standing and brilliant examination results who show unusual promise for their doctoral theses. Applications can be submitted",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The PhD scholarships support highly qualified junior academics from the historical sciences with excellent academic standing and brilliant examination results who show unusual promise for their doctoral theses. Applications can be submitted",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

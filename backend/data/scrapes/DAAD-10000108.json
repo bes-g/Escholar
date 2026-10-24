@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000108",
+  "name": "Konrad-Adenauer-Stiftung (KAS): Scholarship Programme for International Students",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Every year the foundation awards scholarships to international students in degree courses or PhD programmes at higher education institutions in Germany. Research stays lasting at least 4 semesters are also eligible for funding. The",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000108-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000108",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Every year the foundation awards scholarships to international students in degree courses or PhD programmes at higher education institutions in Germany. Research stays lasting at least 4 semesters are also eligible for funding. The",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Every year the foundation awards scholarships to international students in degree courses or PhD programmes at higher education institutions in Germany. Research stays lasting at least 4 semesters are also eligible for funding. The",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

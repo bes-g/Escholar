@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-57652675",
+  "name": "In-Country Scholarships for Postgraduate Studies for Palestinians in the Palestinian Territories (West Bank)",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The 'In-Country Scholarships for Postgraduate Studies for Palestinians in the Palestinian Territories (West Bank) ' offer Palestinian graduates the opportunity to gain a Master's degree at selected Palestinian universities in the West Bank",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-57652675-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57652675",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The 'In-Country Scholarships for Postgraduate Studies for Palestinians in the Palestinian Territories (West Bank) ' offer Palestinian graduates the opportunity to gain a Master's degree at selected Palestinian universities in the West Bank",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The 'In-Country Scholarships for Postgraduate Studies for Palestinians in the Palestinian Territories (West Bank) ' offer Palestinian graduates the opportunity to gain a Master's degree at selected Palestinian universities in the West Bank",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

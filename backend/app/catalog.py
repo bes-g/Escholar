@@ -258,7 +258,9 @@ def seed_catalog(db) -> None:
     from app.models import Scholarship
 
     keep = {record["id"] for record in SCHOLARSHIPS}
-    for stale in db.query(Scholarship).filter(Scholarship.id.notin_(keep)).all():
+    for stale in (
+        db.query(Scholarship).filter(Scholarship.origin == "seed", Scholarship.id.notin_(keep)).all()
+    ):
         db.delete(stale)
     for record in SCHOLARSHIPS:
         row = db.get(Scholarship, record["id"])

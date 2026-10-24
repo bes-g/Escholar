@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-57507783",
+  "name": "Bi-nationally Supervised Doctoral Degrees / Cotutelle",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "DAAD grants for doctoral candidates and young scientists and academics whose doctoral degrees are supervised both by a university teacher at the home university and an academic adviser at the host institute in Germany",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-57507783-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57507783",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "DAAD grants for doctoral candidates and young scientists and academics whose doctoral degrees are supervised both by a university teacher at the home university and an academic adviser at the host institute in Germany",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "DAAD grants for doctoral candidates and young scientists and academics whose doctoral degrees are supervised both by a university teacher at the home university and an academic adviser at the host institute in Germany",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

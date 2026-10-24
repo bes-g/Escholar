@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000103",
+  "name": "Institutions of Higher Education in Hesse: Doctoral Scholarships",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Specific higher education institutions of the state of Hesse award doctoral scholarships to particularly qualified junior scholars and researchers who wish to conduct doctoral research at a Hessian higher education institution. Applications",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000103-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000103",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Specific higher education institutions of the state of Hesse award doctoral scholarships to particularly qualified junior scholars and researchers who wish to conduct doctoral research at a Hessian higher education institution. Applications",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Specific higher education institutions of the state of Hesse award doctoral scholarships to particularly qualified junior scholars and researchers who wish to conduct doctoral research at a Hessian higher education institution. Applications",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

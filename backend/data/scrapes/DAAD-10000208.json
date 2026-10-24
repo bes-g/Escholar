@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000208",
+  "name": "Bayer Foundation: Fellowship in Drug Discovery Sciences",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The scholarships are aimed at Master's and PhD students from all scientific disciplines including pharmacy and data science, with fundamental or applied studies with relevance to the pharmaceutical and consumer healthcare (over-the-counter)",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000208-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000208",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The scholarships are aimed at Master's and PhD students from all scientific disciplines including pharmacy and data science, with fundamental or applied studies with relevance to the pharmaceutical and consumer healthcare (over-the-counter)",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The scholarships are aimed at Master's and PhD students from all scientific disciplines including pharmacy and data science, with fundamental or applied studies with relevance to the pharmaceutical and consumer healthcare (over-the-counter)",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

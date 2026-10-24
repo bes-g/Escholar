@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy.orm.attributes import flag_modified
 
 import app.agent as agent
-from app.agent import ModelError, UserInputError, user_message
+from app.agent import ModelError, UserInputError
 from app.auth import (
     checked_profile,
     clear_session_cookie,
@@ -34,6 +34,7 @@ from app.auth import (
     write_profile,
 )
 from app.catalog import seed_catalog
+from app.scrapes import load_scrapes, record_from_row, remove_scrape, write_scrape
 from app.config import settings
 from app.database import Base, SessionLocal, engine, ensure_columns, get_db
 from app.firebase_auth import FirebaseAuthError, firebase_configured, verify_firebase_token
@@ -169,6 +170,7 @@ async def lifespan(_app: FastAPI):
     db = SessionLocal()
     try:
         seed_catalog(db)
+        load_scrapes(db)
         _ensure_admin(db)
     finally:
         db.close()
@@ -512,6 +514,7 @@ def create_source(body: SourceCreate, request: Request, db: Session = Depends(ge
         )
         db.add(row)
         db.commit()
+        write_scrape(record_from_row(row))
         return source_payload(row)
     except SourceError as exc:
         db.rollback()
@@ -605,6 +608,7 @@ def crawl_source(source_id: str, body: CrawlRequest, request: Request, db: Sessi
                     extracted = extract_scholarship(child_html, final_url)
                     child = _draft_from_extract(db, extracted, user, depth + 1)
                     db.commit()
+                    write_scrape(record_from_row(child))
                 except SourceError as exc:
                     db.rollback()
                     pages.append({"id": "", "name": link, "url": link, "depth": depth + 1, "status": "failed", "message": exc.message})
@@ -640,6 +644,7 @@ def update_source(source_id: str, body: SourceUpdate, request: Request, db: Sess
     except SourceError as exc:
         return _error(400, exc.message)
     db.commit()
+    write_scrape(record_from_row(row))
     return source_payload(row)
 
 
@@ -663,6 +668,7 @@ def publish_source(source_id: str, body: SourceUpdate, request: Request, db: Ses
         return _error(400, exc.message)
     row.status = "published"
     db.commit()
+    write_scrape(record_from_row(row))
     try:
         index_scholarship(db, row)
         notify_for_scholarship(db, row)
@@ -680,6 +686,7 @@ def unpublish_source(source_id: str, request: Request, db: Session = Depends(get
     row.status = "draft"
     drop_scholarship(db, row.id)
     db.commit()
+    write_scrape(record_from_row(row))
     return source_payload(row)
 
 
@@ -692,6 +699,7 @@ def delete_source(source_id: str, request: Request, db: Session = Depends(get_db
     drop_scholarship(db, row.id)
     db.delete(row)
     db.commit()
+    remove_scrape(row.id)
     return {"ok": True}
 
 
@@ -760,9 +768,7 @@ def advise(body: AdviseRequest, user: User | None = Depends(optional_user), db: 
     profile = to_internal(body.profile)
     try:
         session = _load_session(db, body.session_id, profile, user.id if user else None)
-        intent = "recheck" if session.messages else "advise"
-        text = user_message(profile, intent, None, [])
-        payload = agent.run_agent(db, session, text, intent, agent.default_complete)
+        payload = agent.run_catalog(db, session)
         db.commit()
         return payload
     except UserInputError as exc:
@@ -797,15 +803,8 @@ def confirm(session_id: str, body: ConfirmRequest, user: User | None = Depends(o
             "error": None,
             "model": settings.llm_model,
         }
-    eligible_ids = [
-        item["opportunity_id"]
-        for item in (session.latest_eligibility or [])
-        if item["status"] == "eligible"
-    ]
     try:
-        session.requested_plan_name = (body.plan_name or "").strip()
-        text = user_message(session.profile, "confirm", body.plan_name, eligible_ids)
-        payload = agent.run_agent(db, session, text, "confirm", agent.default_complete)
+        payload = agent.confirm_saved(db, session, body.plan_name or "")
         db.commit()
         return payload
     except UserInputError as exc:

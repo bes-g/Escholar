@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000382",
+  "name": "Canon Foundation Research Fellowship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Annually, the Canon Foundation in Europe grants up to 15 fellowships to European researchers to enable them to continue their studies in Japan. The same applies to PhD researchers based in Japan in relation to their studies in Europe. This",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000382-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000382",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Annually, the Canon Foundation in Europe grants up to 15 fellowships to European researchers to enable them to continue their studies in Japan. The same applies to PhD researchers based in Japan in relation to their studies in Europe. This",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Annually, the Canon Foundation in Europe grants up to 15 fellowships to European researchers to enable them to continue their studies in Japan. The same applies to PhD researchers based in Japan in relation to their studies in Europe. This",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

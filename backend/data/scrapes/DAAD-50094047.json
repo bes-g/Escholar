@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50094047",
+  "name": "CAS-DAAD-Programme / Joint Fellowship Programme for Doctoral Students of CAS",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "With this programme doctoral students from institutes of Chinese Academy of Sciences (CAS) are provided the opportunity to perform part of their doctoral research in German universities and research institutions with the exception of",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50094047-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50094047",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "With this programme doctoral students from institutes of Chinese Academy of Sciences (CAS) are provided the opportunity to perform part of their doctoral research in German universities and research institutions with the exception of",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "With this programme doctoral students from institutes of Chinese Academy of Sciences (CAS) are provided the opportunity to perform part of their doctoral research in German universities and research institutions with the exception of",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

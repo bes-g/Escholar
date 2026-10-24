@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000148",
+  "name": "Boehringer Ingelheim Fonds: Travel Grants",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Boehringer Ingelheim Fonds travel grants are aimed at doctoral, MD and post-doctoral students who pursue experimental projects in basic biomedical research and who wish to learn methods relevant to their current research. To this end,",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000148-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000148",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Boehringer Ingelheim Fonds travel grants are aimed at doctoral, MD and post-doctoral students who pursue experimental projects in basic biomedical research and who wish to learn methods relevant to their current research. To this end,",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Boehringer Ingelheim Fonds travel grants are aimed at doctoral, MD and post-doctoral students who pursue experimental projects in basic biomedical research and who wish to learn methods relevant to their current research. To this end,",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50016578",
+  "name": "DAAD-TEV-Master's degree scholarships",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The scholarships offer Turkish students from all disciplines the opportunity to improve their qualifications with a Master's degree programme.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50016578-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50016578",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The scholarships offer Turkish students from all disciplines the opportunity to improve their qualifications with a Master's degree programme.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The scholarships offer Turkish students from all disciplines the opportunity to improve their qualifications with a Master's degree programme.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

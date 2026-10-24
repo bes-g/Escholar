@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000612",
+  "name": "DAAD Konrad Zuse School of Excellence in Reliable Artificial Intelligence (relAI): Scholarship for Master's Students and PhD Candidates",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The research and training programme focusses on the mathematical and algorithmic foundations of reliable AI along with domain knowledge in 4 core application domains, for which reliable AI methods are most urgently needed: medicine and",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000612-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000612",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The research and training programme focusses on the mathematical and algorithmic foundations of reliable AI along with domain knowledge in 4 core application domains, for which reliable AI methods are most urgently needed: medicine and",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The research and training programme focusses on the mathematical and algorithmic foundations of reliable AI along with domain knowledge in 4 core application domains, for which reliable AI methods are most urgently needed: medicine and",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

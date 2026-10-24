@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000123",
+  "name": "Herder Institute for Historical Research on East-Central Europe: Herder Fellowship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Herder Fellowship Programme is aimed at researchers of all qualification levels (doctoral students, postdocs and proven experts in historical research on East Central Europe), especially from Central and Eastern European countries. The",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000123-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000123",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Herder Fellowship Programme is aimed at researchers of all qualification levels (doctoral students, postdocs and proven experts in historical research on East Central Europe), especially from Central and Eastern European countries. The",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Herder Fellowship Programme is aimed at researchers of all qualification levels (doctoral students, postdocs and proven experts in historical research on East Central Europe), especially from Central and Eastern European countries. The",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

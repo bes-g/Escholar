@@ -148,16 +148,7 @@ def evaluate_one(profile: dict, scholarship: dict) -> dict:
         "passed": passed,
         "failed": failed,
         "unknown": unknown,
-        "source_record": {
-            "id": scholarship["id"],
-            "name": scholarship["name"],
-            "provider": scholarship["provider"],
-            "deadline": scholarship["deadline"],
-            "summary": scholarship["summary"],
-            "required_documents": list(scholarship["required_documents"]),
-            "criteria": scholarship["criteria"],
-            "source_url": scholarship.get("source_url") or "",
-        },
+        "source_record": {"id": scholarship["id"]},
     }
 
 

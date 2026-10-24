@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000185",
+  "name": "The American Friends of the Herzog August Bibliothek (HAB): Travel Grant",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The travel grants are intended to assist young US citizens or permanent US residents who write their doctoral theses and wish to access the Herzog August Library for research purposes. Young academics who finished their PhD no more than 3",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000185-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000185",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The travel grants are intended to assist young US citizens or permanent US residents who write their doctoral theses and wish to access the Herzog August Library for research purposes. Young academics who finished their PhD no more than 3",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The travel grants are intended to assist young US citizens or permanent US residents who write their doctoral theses and wish to access the Herzog August Library for research purposes. Young academics who finished their PhD no more than 3",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

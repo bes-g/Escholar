@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000335",
+  "name": "Government Scholarships Programme Oman",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The programme is aimed at students from Oman who wish to take a Bachelor degree in Germany.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000335-C1",
+      "label": "Degree level is Bachelor",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Bachelor"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000335",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The programme is aimed at students from Oman who wish to take a Bachelor degree in Germany.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Bachelor",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The programme is aimed at students from Oman who wish to take a Bachelor degree in Germany.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

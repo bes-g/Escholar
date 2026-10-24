@@ -7,6 +7,8 @@ os.environ["DATABASE_URL"] = f"sqlite:///{_dir / 'test.db'}"
 os.environ["LLM_API_KEY"] = ""
 os.environ["LLM_MODEL"] = "test-model"
 os.environ["LLM_REASONING_EFFORT"] = ""
+os.environ["PINECONE_API_KEY"] = ""
+os.environ["PINECONE_INDEX"] = "escholar"
 
 import pytest
 from fastapi.testclient import TestClient

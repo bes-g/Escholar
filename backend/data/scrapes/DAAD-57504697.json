@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-57504697",
+  "name": "Combined Study and Practice Stays for Engineers from Developing Countries (KOSPIE) with Indian IITs",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Scholarships for Master's students from Indian Institutes of Technology (IIT)",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-57504697-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57504697",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Scholarships for Master's students from Indian Institutes of Technology (IIT)",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Scholarships for Master's students from Indian Institutes of Technology (IIT)",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

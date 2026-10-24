@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000429",
+  "name": "Hertie School: Human Rights Scholarship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Human Rights Scholarship from the Hertie School is a full tuition scholarship, available for applicants of all nationalities who wish to pursue a 2-year, full-time, Master of International Affairs programme taught in English in Berlin,",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000429-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000429",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Human Rights Scholarship from the Hertie School is a full tuition scholarship, available for applicants of all nationalities who wish to pursue a 2-year, full-time, Master of International Affairs programme taught in English in Berlin,",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Human Rights Scholarship from the Hertie School is a full tuition scholarship, available for applicants of all nationalities who wish to pursue a 2-year, full-time, Master of International Affairs programme taught in English in Berlin,",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

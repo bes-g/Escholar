@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000210",
+  "name": "Evangelisches Studienwerk: Scholarship for Doctoral Students",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Every year the Studienwerk funds scholarships and a wide range of educational programmes for about 300 German and foreign doctoral candidates of protestant faith from all disciplines. The grants are awarded in accordance with the guidelines",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000210-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000210",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Every year the Studienwerk funds scholarships and a wide range of educational programmes for about 300 German and foreign doctoral candidates of protestant faith from all disciplines. The grants are awarded in accordance with the guidelines",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Every year the Studienwerk funds scholarships and a wide range of educational programmes for about 300 German and foreign doctoral candidates of protestant faith from all disciplines. The grants are awarded in accordance with the guidelines",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

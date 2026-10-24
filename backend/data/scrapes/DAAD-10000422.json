@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000422",
+  "name": "RWTH International Academy: Women in Engineering Scholarship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "This scholarship was created to enable for more qualified female engineering students to pursue a Master’s degree programme and establish gender equality among students of English-language Master’s degree programmes at RWTH",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000422-C1",
+      "label": "Degree level is Master",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "Master"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000422",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "This scholarship was created to enable for more qualified female engineering students to pursue a Master’s degree programme and establish gender equality among students of English-language Master’s degree programmes at RWTH",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "Master",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "This scholarship was created to enable for more qualified female engineering students to pursue a Master’s degree programme and establish gender equality among students of English-language Master’s degree programmes at RWTH",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

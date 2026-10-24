@@ -51,10 +51,54 @@ def test_api_rejects_bad_gpa_without_losing_the_contract(client):
     assert "GPA" in " ".join(body["errors"])
 
 
-def test_missing_key_is_a_clear_error(client):
-    response = client.post("/api/advise", json={"profile": EXAMPLES[0]["profile"]})
-    assert response.status_code == 502
-    assert "API key" in response.json()["message"]
+def test_catalog_check_cites_rules_and_a_confirmed_plan_reopens(client):
+    profile = dict(EXAMPLES[2]["profile"])
+    first = client.post("/api/advise", json={"profile": profile})
+    assert first.status_code == 200
+    body = first.json()
+    assert body["saved_plan"] is None
+    assert body["awaiting_confirmation"] is False
+    assert any(field["field"] == "year_of_study" for field in body["missing_fields"])
+    assert "year of study" in body["assistant_message"].casefold()
+    assert [entry["tool"] for entry in body["tool_log"]] == ["search_opportunities", "check_eligibility"]
+    undetermined = next(item for item in body["eligibility"] if item["opportunity_id"] == "SCH-001")
+    assert undetermined["status"] == "undetermined"
+    assert undetermined["source_record"]["id"] == "SCH-001"
+    assert "SCH-001" in undetermined["unknown"][0]["detail"]
+    blocked = next(item for item in body["eligibility"] if item["opportunity_id"] == "SCH-002")
+    assert blocked["status"] == "ineligible"
+    assert "SCH-002" in blocked["failed"][0]["detail"]
+
+    profile["year_of_study"] = "3"
+    second = client.post("/api/advise", json={"profile": profile, "session_id": body["session_id"]})
+    assert second.status_code == 200
+    ready = second.json()
+    assert ready["awaiting_confirmation"] is True
+    assert ready["saved_plan"] is None
+    items = ready["plan_preview"]["items"]
+    assert [item["opportunity_id"] for item in items] == ["SCH-001", "SCH-003", "SCH-004"]
+    for item in items:
+        assert item["deadline"]
+        assert item["required_documents"]
+        assert item["next_actions"]
+        assert item["checklist"]
+        assert all(entry["done"] is False for entry in item["checklist"])
+
+    saved = client.post(
+        f"/api/sessions/{ready['session_id']}/confirm",
+        json={"plan_name": ready["plan_preview"]["plan_name"]},
+    )
+    assert saved.status_code == 200
+    plan = saved.json()["saved_plan"]
+    assert [item["opportunity_id"] for item in plan["opportunities"]] == [
+        "SCH-001",
+        "SCH-003",
+        "SCH-004",
+    ]
+    assert plan["opportunities"] == items
+    reopened = client.get(f"/api/plans/{plan['id']}")
+    assert reopened.status_code == 200
+    assert reopened.json()["opportunities"] == plan["opportunities"]
 
 
 def test_simulated_failure_is_explicit(client):

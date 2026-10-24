@@ -173,6 +173,128 @@ def default_complete(messages: list[dict], tool_choice):
     return response.choices[0].message
 
 
+def explain_results(results: list[dict], plan_id: str | None = None) -> str:
+    """Short answer from the rule pass. The cards carry every citation, so this stays bounded."""
+    if plan_id:
+        return f"The plan is saved. Reopen it with id {plan_id}."
+    missing = collect_missing(results)
+    eligible = [item for item in results if item["status"] == "eligible"]
+    parts = []
+    if missing:
+        labels = ", ".join(item["label"] for item in missing)
+        parts.append(f"Some scholarships are undetermined. Please provide: {labels}.")
+        for item in missing[:6]:
+            if item["reasons"]:
+                parts.append(item["reasons"][0])
+    cited = 0
+    for result in results:
+        for entry in result["failed"]:
+            if cited >= 8:
+                break
+            parts.append(entry["detail"])
+            cited += 1
+        if cited >= 8:
+            break
+    if not missing and eligible:
+        shown = eligible[:8]
+        names = ", ".join(item["name"] for item in shown)
+        extra = len(eligible) - len(shown)
+        if extra:
+            names = f"{names}, and {extra} more"
+        parts.append(
+            f"Eligible scholarships: {names}. "
+            "Review the plan below. Nothing is saved until you confirm."
+        )
+    elif not missing and results and not eligible:
+        parts.append("None of the catalog scholarships are eligible. Each card cites the failed rule and its source record.")
+    elif not results:
+        parts.append("The catalog has no published scholarships to check.")
+    return " ".join(parts)
+
+
+def _remember(session, text: str, turn_log: list[dict]) -> None:
+    session.messages = [
+        {"role": "user", "content": "Check the stored profile against published scholarships."},
+        {"role": "assistant", "content": text},
+    ]
+    flag_modified(session, "messages")
+    session.tool_log = turn_log
+    flag_modified(session, "tool_log")
+    session.updated_at = datetime.now(timezone.utc)
+
+
+def run_catalog(db, session) -> dict:
+    """Search and classify in one pass. The model is not called."""
+    from app.tools import review_catalog, summarize_tool
+
+    search, checked = review_catalog(db, session.profile)
+    session.latest_eligibility = checked["results"]
+    flag_modified(session, "latest_eligibility")
+    session.confirmed = False
+    turn_log = [
+        {
+            "tool": "search_opportunities",
+            "arguments": {},
+            "ok": True,
+            "summary": summarize_tool("search_opportunities", search),
+            "output": search,
+        },
+        {
+            "tool": "check_eligibility",
+            "arguments": {},
+            "ok": True,
+            "summary": summarize_tool("check_eligibility", checked),
+            "output": {
+                "ok": True,
+                "counts": checked["counts"],
+                "unknown_ids": checked["unknown_ids"],
+            },
+        },
+    ]
+    text = explain_results(checked["results"])
+    _remember(session, text, turn_log)
+    db.flush()
+    return build_payload(db, session, turn_log, text, None)
+
+
+def confirm_saved(db, session, plan_name: str) -> dict:
+    """Save the eligible shortlist from the last check. No second catalog scan and no model call."""
+    from app.tools import execute_tool, summarize_tool
+
+    results = list(session.latest_eligibility or [])
+    missing = collect_missing(results)
+    if missing:
+        labels = ", ".join(item["label"] for item in missing)
+        raise UserInputError(f"Add the missing information before confirming: {labels}.")
+    eligible_ids = [item["opportunity_id"] for item in results if item["status"] == "eligible"]
+    if not eligible_ids:
+        raise UserInputError("There is no eligible scholarship to save yet.")
+    session.confirmed = True
+    session.requested_plan_name = (plan_name or "").strip()
+    arguments = {"opportunity_ids": eligible_ids, "plan_name": session.requested_plan_name}
+    payload = execute_tool(db, session, "save_application_plan", arguments)
+    text = payload.get("error") or f"Saved the application plan. The plan id is {payload.get('plan_id')}."
+    turn_log = [
+        {
+            "tool": "save_application_plan",
+            "arguments": arguments,
+            "ok": bool(payload.get("ok")),
+            "summary": summarize_tool("save_application_plan", payload),
+            "output": {
+                "ok": payload.get("ok"),
+                "plan_id": payload.get("plan_id"),
+                "saved_ids": payload.get("saved_ids"),
+                "ignored_ids": payload.get("ignored_ids"),
+                "error": payload.get("error"),
+                "already_saved": payload.get("already_saved"),
+            },
+        }
+    ]
+    _remember(session, text, turn_log)
+    db.flush()
+    return build_payload(db, session, turn_log, text, None if payload.get("ok") else text)
+
+
 def fallback_text(session) -> str:
     results = session.latest_eligibility or []
     missing = collect_missing(results)

@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000406",
+  "name": "German Academic Scholarship Foundation: Doctoral Scholarships",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "In line with its statutes, the Studienstiftung des deutschen Volkes (German Academic Scholarship Foundation) supports the university education of young people who, because of their exceptional academic or artistic talents and personal",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000406-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000406",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "In line with its statutes, the Studienstiftung des deutschen Volkes (German Academic Scholarship Foundation) supports the university education of young people who, because of their exceptional academic or artistic talents and personal",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "In line with its statutes, the Studienstiftung des deutschen Volkes (German Academic Scholarship Foundation) supports the university education of young people who, because of their exceptional academic or artistic talents and personal",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

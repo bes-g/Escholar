@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-50015276",
+  "name": "ALECOSTA: Alemania-Costa Rica",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Based on an agreement between CONARE and the DAAD, university lecturers from four Costa Rican universities receive funding to obtain further qualifications in Germany with scholarships for Master's and doctoral degrees.",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-50015276-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50015276",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Based on an agreement between CONARE and the DAAD, university lecturers from four Costa Rican universities receive funding to obtain further qualifications in Germany with scholarships for Master's and doctoral degrees.",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Based on an agreement between CONARE and the DAAD, university lecturers from four Costa Rican universities receive funding to obtain further qualifications in Germany with scholarships for Master's and doctoral degrees.",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

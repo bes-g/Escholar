@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000231",
+  "name": "Munich Aerospace: PhD Scholarships",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Munich Aerospace supports young scientists and their research projects through doctoral scholarships. The programme connects scholarship holders to inter-institutional research groups, which consist of several member institutions of Munich",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000231-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000231",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Munich Aerospace supports young scientists and their research projects through doctoral scholarships. The programme connects scholarship holders to inter-institutional research groups, which consist of several member institutions of Munich",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Munich Aerospace supports young scientists and their research projects through doctoral scholarships. The programme connects scholarship holders to inter-institutional research groups, which consist of several member institutions of Munich",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

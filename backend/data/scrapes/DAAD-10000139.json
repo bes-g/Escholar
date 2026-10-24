@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000139",
+  "name": "Evonik Foundation: Evonik Foundation Scholarship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Research work (Master's theses, doctoral theses, Postdocs) in the field of natural sciences is eligible for funding. The programme's focus is on the active support of particularly gifted and skilled young scientists and includes mentoring",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000139-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000139",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Research work (Master's theses, doctoral theses, Postdocs) in the field of natural sciences is eligible for funding. The programme's focus is on the active support of particularly gifted and skilled young scientists and includes mentoring",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Research work (Master's theses, doctoral theses, Postdocs) in the field of natural sciences is eligible for funding. The programme's focus is on the active support of particularly gifted and skilled young scientists and includes mentoring",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

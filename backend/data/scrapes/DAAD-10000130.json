@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000130",
+  "name": "Gerda Henkel Foundation: Research Scholarships",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "Applicants holding a PhD or who are eligible to be a junior professor in the historical humanities are invited to apply for the research scholarships by the GHS, independent of nationality or place of work. The Foundation distinguishes",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000130-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000130",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "Applicants holding a PhD or who are eligible to be a junior professor in the historical humanities are invited to apply for the research scholarships by the GHS, independent of nationality or place of work. The Foundation distinguishes",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "Applicants holding a PhD or who are eligible to be a junior professor in the historical humanities are invited to apply for the research scholarships by the GHS, independent of nationality or place of work. The Foundation distinguishes",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

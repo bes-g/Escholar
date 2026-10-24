@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000113",
+  "name": "Heinrich Böll Foundation: PhD scholarship",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Heinrich Böll Foundation is the Green political foundation. Every year, under the heading &quot;promoting talent&quot;, the foundation supports around 1,650 students and doctoral students from all academic backgrounds and types of",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000113-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000113",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Heinrich Böll Foundation is the Green political foundation. Every year, under the heading &quot;promoting talent&quot;, the foundation supports around 1,650 students and doctoral students from all academic backgrounds and types of",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Heinrich Böll Foundation is the Green political foundation. Every year, under the heading &quot;promoting talent&quot;, the foundation supports around 1,650 students and doctoral students from all academic backgrounds and types of",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

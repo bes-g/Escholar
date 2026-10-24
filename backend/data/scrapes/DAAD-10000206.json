@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000206",
+  "name": "Bayer Foundation: Fellowship for Medical Sciences",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The Fellowship for Medical Sciences offers individual support to students in the disciplines of human or veterinary medicine or for an MSc or PhD (or equivalent) in medical engineering, applied medical sciences, or public health. It funds",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000206-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000206",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The Fellowship for Medical Sciences offers individual support to students in the disciplines of human or veterinary medicine or for an MSc or PhD (or equivalent) in medical engineering, applied medical sciences, or public health. It funds",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The Fellowship for Medical Sciences offers individual support to students in the disciplines of human or veterinary medicine or for an MSc or PhD (or equivalent) in medical engineering, applied medical sciences, or public health. It funds",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}

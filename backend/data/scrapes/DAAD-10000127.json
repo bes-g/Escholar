@@ -1,0 +1,37 @@
+{
+  "id": "DAAD-10000127",
+  "name": "German Federal Environmental Foundation (DBU): PhD Scholarship Programme",
+  "provider": "DAAD",
+  "deadline": "",
+  "summary": "The DBU scholarship programme for PhD students aims to support young academics in the field of applied environmental sciences and build an interdisciplinary network of experts on the environment. To this end, the scholarships help finance",
+  "required_documents": [],
+  "criteria": [
+    {
+      "id": "DAAD-10000127-C1",
+      "label": "Degree level is PhD",
+      "field": "degree_level",
+      "op": "eq",
+      "value": "PhD"
+    }
+  ],
+  "source_url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=10000127",
+  "status": "draft",
+  "origin": "url",
+  "eligibility_notes": "",
+  "excerpt": "The DBU scholarship programme for PhD students aims to support young academics in the field of applied environmental sciences and build an interdisciplinary network of experts on the environment. To this end, the scholarships help finance",
+  "sections": {
+    "page_kind": "scholarship",
+    "study_level": "PhD",
+    "host_country": "Germany",
+    "related_pages": [],
+    "blocks": {
+      "overview": "The DBU scholarship programme for PhD students aims to support young academics in the field of applied environmental sciences and build an interdisciplinary network of experts on the environment. To this end, the scholarships help finance",
+      "who_can_apply": "",
+      "academic_requirements": "",
+      "funding": "",
+      "dates": "",
+      "documents": "",
+      "how_to_apply": ""
+    }
+  }
+}
