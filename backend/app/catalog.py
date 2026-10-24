@@ -271,4 +271,11 @@ def seed_catalog(db) -> None:
         row.summary = record["summary"]
         row.required_documents = list(record["required_documents"])
         row.criteria = list(record["criteria"])
+        row.source_url = ""
+        row.status = "published"
+        row.origin = "seed"
+        row.eligibility_notes = ""
+        row.excerpt = ""
+        row.fetched_at = None
+        row.submitted_by = None
     db.commit()

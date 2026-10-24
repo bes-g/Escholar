@@ -16,6 +16,20 @@ class Settings(BaseSettings):
     llm_reasoning_effort: str = "low"
     max_tool_calls: int = 8
     frontend_dist: str = ""
+    admin_email: str = ""
+    admin_password: str = ""
+    pinecone_api_key: str = ""
+    pinecone_index: str = "escholar"
+    embedding_model: str = "gemini-embedding-001"
+    embedding_dimensions: int = 768
+    match_similarity: float = 0.55
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_user: str = ""
+    smtp_password: str = ""
+    smtp_from: str = ""
+    firebase_project_id: str = ""
+    firebase_service_account_file: str = ""
 
     model_config = SettingsConfigDict(
         env_file=str(BACKEND_DIR / ".env"),

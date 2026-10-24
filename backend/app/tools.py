@@ -81,6 +81,15 @@ TOOLS = [
 ]
 
 
+def published_scholarships(db):
+    return (
+        db.query(Scholarship)
+        .filter(Scholarship.status == "published")
+        .order_by(Scholarship.id)
+        .all()
+    )
+
+
 def scholarship_dict(row: Scholarship) -> dict:
     return {
         "id": row.id,
@@ -90,6 +99,8 @@ def scholarship_dict(row: Scholarship) -> dict:
         "summary": row.summary,
         "required_documents": list(row.required_documents),
         "criteria": list(row.criteria),
+        "source_url": row.source_url or "",
+        "origin": row.origin or "seed",
     }
 
 
@@ -100,7 +111,7 @@ def source_record(row: Scholarship) -> dict:
 
 
 def search_opportunities(db, keywords: str = "") -> dict:
-    rows = db.query(Scholarship).order_by(Scholarship.id).all()
+    rows = published_scholarships(db)
     terms = [term for term in (keywords or "").casefold().split() if term]
     opportunities = []
     for row in rows:
@@ -112,7 +123,7 @@ def search_opportunities(db, keywords: str = "") -> dict:
 
 
 def check_eligibility(db, profile: dict, opportunity_ids: list | None = None) -> dict:
-    rows = db.query(Scholarship).order_by(Scholarship.id).all()
+    rows = published_scholarships(db)
     known = {row.id for row in rows}
     requested = opportunity_ids or []
     unknown_ids = [item for item in requested if item not in known]
@@ -143,7 +154,7 @@ def save_application_plan(db, session, arguments: dict) -> dict:
                 "plan": serialize_plan(existing),
             }
 
-    rows = {row.id: row for row in db.query(Scholarship).order_by(Scholarship.id).all()}
+    rows = {row.id: row for row in published_scholarships(db)}
     results = evaluate_profile(session.profile, [scholarship_dict(row) for row in rows.values()])
     results.sort(key=lambda item: item["opportunity_id"])
     session.latest_eligibility = results
@@ -167,6 +178,7 @@ def save_application_plan(db, session, arguments: dict) -> dict:
         profile_summary=summary(session.profile),
         opportunities=items,
         created_at=datetime.now(timezone.utc),
+        user_id=getattr(session, "user_id", None),
     )
     db.add(plan)
     session.plan_id = plan.id

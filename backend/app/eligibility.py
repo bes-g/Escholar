@@ -143,6 +143,7 @@ def evaluate_one(profile: dict, scholarship: dict) -> dict:
         "deadline": scholarship["deadline"],
         "summary": scholarship["summary"],
         "required_documents": list(scholarship["required_documents"]),
+        "source_url": scholarship.get("source_url") or "",
         "status": overall,
         "passed": passed,
         "failed": failed,
@@ -155,6 +156,7 @@ def evaluate_one(profile: dict, scholarship: dict) -> dict:
             "summary": scholarship["summary"],
             "required_documents": list(scholarship["required_documents"]),
             "criteria": scholarship["criteria"],
+            "source_url": scholarship.get("source_url") or "",
         },
     }
 

@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { LoginPage, ProfilePage, SignupPage } from "./account";
 import { request } from "./api";
+import { ChunkingPage } from "./chunking";
+import { DashboardPage } from "./dashboard";
+import { FieldControl, blankProfile } from "./fields";
+import { firebaseConfigured, firebaseSignOut } from "./firebase";
+import { SourcesPage } from "./sources";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -11,52 +17,13 @@ function formatDate(iso) {
   return `${Number(day)} ${MONTHS[Number(month) - 1]} ${year}`;
 }
 
-function optionValue(option) {
-  return typeof option === "string" ? option : option.value;
-}
-
-function optionLabel(option) {
-  return typeof option === "string" ? option : option.label;
-}
-
-function blankProfile(fields) {
-  const profile = {};
-  for (const field of fields) {
-    profile[field.name] = field.name === "country" ? "Ethiopia" : "";
+function safeHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
   }
-  return profile;
-}
-
-function FieldControl({ field, value, onChange, id }) {
-  const common = {
-    id,
-    name: field.name,
-    value: value ?? "",
-    onChange: (event) => onChange(field.name, event.target.value),
-  };
-  if (field.kind === "select") {
-    return (
-      <select {...common} required={field.required}>
-        <option value="">{field.required ? "Choose one" : "Not specified"}</option>
-        {(field.options || []).map((option) => (
-          <option key={optionValue(option)} value={optionValue(option)}>
-            {optionLabel(option)}
-          </option>
-        ))}
-      </select>
-    );
-  }
-  return (
-    <input
-      {...common}
-      type={field.kind === "number" ? "number" : "text"}
-      min={field.min}
-      max={field.max}
-      step={field.step}
-      inputMode={field.kind === "number" ? "decimal" : undefined}
-      required={field.required}
-    />
-  );
 }
 
 function CriterionList({ title, items }) {
@@ -89,9 +56,14 @@ function OpportunityCard({ item }) {
       <CriterionList title="Passed" items={item.passed} />
       <CriterionList title="Failed" items={item.failed} />
       <CriterionList title="Unknown" items={item.unknown} />
-      <p className="docs">
-        Documents: {item.required_documents.join(", ")}
-      </p>
+      <p className="docs">Documents: {item.required_documents.join(", ")}</p>
+      {safeHttpUrl(item.source_url) && (
+        <p className="docs">
+          <a href={safeHttpUrl(item.source_url)} target="_blank" rel="noreferrer">
+            Source page
+          </a>
+        </p>
+      )}
     </article>
   );
 }
@@ -133,7 +105,12 @@ export default function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingLabel, setLoadingLabel] = useState("");
-  const [page, setPage] = useState("advise");
+  const [page, setPage] = useState("login");
+  const [account, setAccount] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const profileTouched = useRef(false);
+  const savedProfile = useRef(null);
   const [planName, setPlanName] = useState("");
   const [missingDraft, setMissingDraft] = useState({});
   const [openPlanId, setOpenPlanId] = useState(null);
@@ -154,17 +131,60 @@ export default function App() {
       .then(([metaData, catalogData, planData]) => {
         if (cancelled) return;
         setMeta(metaData);
-        setProfile(blankProfile(metaData.fields));
+        if (!profileTouched.current) setProfile(savedProfile.current || blankProfile(metaData.fields));
         setCatalog(catalogData.opportunities || []);
         setPlans(planData.plans || []);
       })
       .catch((err) => {
         if (!cancelled) setError({ message: err.message, errors: [], retryable: true });
       });
+    request("/api/me")
+      .then((data) => {
+        if (cancelled) return;
+        setAccount(data);
+        savedProfile.current = data.profile;
+        if (!profileTouched.current) setProfile(data.profile);
+        setPage(data.user?.role === "admin" ? "sources" : "dashboard");
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setAccount(null);
+          setPage("login");
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setAuthReady(true);
+      });
     return () => {
       cancelled = true;
     };
   }, []);
+
+  function homeFor(data) {
+    return data?.user?.role === "admin" ? "sources" : "dashboard";
+  }
+
+  function acceptAccount(data) {
+    profileTouched.current = false;
+    setAccount(data);
+    if (data.profile) setProfile(data.profile);
+    setPage(homeFor(data));
+    refreshPlans().catch(() => {});
+  }
+
+  async function signOut() {
+    await firebaseSignOut().catch(() => {});
+    await request("/api/logout", { method: "POST" }).catch(() => {});
+    setAccount(null);
+    setMenuOpen(false);
+    setPage("login");
+    refreshPlans().catch(() => {});
+  }
+
+  function go(next) {
+    setPage(next);
+    setMenuOpen(false);
+  }
 
   function applyAdvice(data) {
     setAdvice(data);
@@ -232,10 +252,12 @@ export default function App() {
   }
 
   function update(name, value) {
+    profileTouched.current = true;
     setProfile((current) => ({ ...current, [name]: value }));
   }
 
   function loadExample(example) {
+    profileTouched.current = true;
     setProfile({ ...blankProfile(meta.fields), ...example.profile });
     setSessionId(null);
     setAdvice(null);
@@ -249,15 +271,16 @@ export default function App() {
     setError(null);
   }
 
-  if (!meta) {
+  if (!meta || !authReady) {
     return (
       <main className="boot">
-        <p>{error ? error.message : "Loading the adviser…"}</p>
+        <p>{error ? error.message : "Loading E-Scholar…"}</p>
       </main>
     );
   }
 
   const fields = meta.fields;
+  const firebaseReady = Boolean(meta.firebase) && firebaseConfigured;
   const byName = Object.fromEntries(fields.map((field) => [field.name, field]));
   const groups = [
     ["eligible", "Eligible"],
@@ -266,34 +289,33 @@ export default function App() {
   ];
   const step = advice?.saved_plan ? 4 : advice?.awaiting_confirmation ? 3 : advice ? 2 : 1;
   const openPlan = plans.find((plan) => plan.id === openPlanId) || advice?.saved_plan;
+  const isAdmin = account?.user?.role === "admin";
+  const titles = {
+    dashboard: "Dashboard",
+    advise: "Adviser",
+    plans: "Saved plans",
+    profile: "Profile",
+    sources: "Sources",
+    chunking: "Chunking",
+    login: "Sign in",
+    signup: "Create account",
+  };
+  const activePage = !account
+    ? page === "signup"
+      ? "signup"
+      : "login"
+    : (isAdmin ? ["sources", "chunking"] : ["dashboard", "advise", "plans", "profile"]).includes(page)
+      ? page
+      : homeFor(account);
+  const initials = (account?.profile?.student_name || account?.user?.email || "G")
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
-  return (
+  const pageBody = (
     <>
-      <header className="topbar">
-        <div className="wrap bar">
-          <div>
-            <p className="brand">E-Scholar</p>
-            <p className="tag">Scholarship adviser for a fictitious Ethiopian catalog</p>
-          </div>
-          <nav>
-            <button type="button" className={page === "advise" ? "on" : ""} onClick={() => setPage("advise")}>
-              Adviser
-            </button>
-            <button type="button" className={page === "plans" ? "on" : ""} onClick={() => setPage("plans")}>
-              Saved plans ({plans.length})
-            </button>
-          </nav>
-        </div>
-      </header>
-
-      <main className="wrap">
-        <ol className="steps" aria-label="Progress">
-          {["Profile", "Check", "Confirm", "Saved"].map((label, index) => (
-            <li key={label} className={step >= index + 1 ? "on" : ""}>
-              {label}
-            </li>
-          ))}
-        </ol>
 
         {!meta.model_configured && (
           <p className="note">
@@ -320,11 +342,29 @@ export default function App() {
           </div>
         )}
 
-        {page === "plans" ? (
+        {activePage === "dashboard" ? (
+          <DashboardPage onOpenProfile={() => go("profile")} />
+        ) : activePage === "chunking" ? (
+          <ChunkingPage />
+        ) : activePage === "profile" ? (
+          <ProfilePage
+            levels={meta.levels}
+            levelForms={meta.level_forms}
+            account={account}
+            onDone={(data) => {
+              savedProfile.current = data.profile;
+              setAccount(data);
+            }}
+          />
+        ) : activePage === "sources" ? (
+          <SourcesPage />
+        ) : activePage === "plans" ? (
           <section className="panel">
             <h2>Saved plans</h2>
             <p className="muted">
-              Plans are stored in the shared database for this demo. They are not private. Use fictitious names only.
+              {account
+                ? "These plans belong to your account. Use fictitious names unless you are comfortable storing this profile."
+                : "Plans saved without an account are visible to anyone using this demo. Sign in to keep plans on your account."}
             </p>
             {plans.length === 0 && <p>No plan has been saved yet.</p>}
             <div className="plan-list">
@@ -356,8 +396,26 @@ export default function App() {
           <div className="layout">
             <section className="panel">
               <h2>Student profile</h2>
-              <p className="muted">Fictitious details only. Eligibility is calculated from catalog rules, not by the model.</p>
+              <p className="muted">
+                Eligibility is calculated from catalog rules, not by the model.
+                {account ? " Load your saved profile, or type a one-off check without changing it." : " Sign in to keep this profile."}
+              </p>
               <div className="examples">
+                {account && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      profileTouched.current = false;
+                      setProfile(account.profile);
+                      setSessionId(null);
+                      setAdvice(null);
+                      setError(null);
+                    }}
+                    disabled={loading}
+                  >
+                    Load saved profile
+                  </button>
+                )}
                 {meta.examples.map((example) => (
                   <button type="button" key={example.id} onClick={() => loadExample(example)} disabled={loading}>
                     {example.label}
@@ -544,11 +602,115 @@ export default function App() {
             </section>
           </div>
         )}
-        <footer>
-          First load on a sleeping free host can take up to a minute. The catalog is fictitious. Do not enter real
-          personal data.
-        </footer>
-      </main>
     </>
+  );
+
+  if (!account) {
+    return (
+      <div className="auth-shell">
+        <div className="auth-intro">
+          <p className="brand">E-Scholar</p>
+          <h2>{titles[activePage]}</h2>
+          <p>Sign in to open your page. Students and administrators see different workspaces.</p>
+        </div>
+        {activePage === "signup" ? (
+          <SignupPage
+            fields={fields}
+            levels={meta.levels}
+            levelForms={meta.level_forms}
+            firebaseReady={firebaseReady}
+            onDone={acceptAccount}
+            onSwitch={() => setPage("login")}
+          />
+        ) : (
+          <LoginPage firebaseReady={firebaseReady} onDone={acceptAccount} onSwitch={() => setPage("signup")} />
+        )}
+        <p className="auth-foot">Scholarship matching for a fictitious catalog. Do not enter real personal documents.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="shell">
+      <div className={menuOpen ? "backdrop open" : "backdrop"} onClick={() => setMenuOpen(false)} />
+      <aside className={menuOpen ? "sidebar open" : "sidebar"}>
+        <button type="button" className="sidebar-brand" onClick={() => go(homeFor(account))}>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2" fill="#0ab39c" opacity="0.25" />
+            <path d="M6 16V10l4 3 4-3v6M6 8h12" stroke="#fff" strokeWidth="1.75" strokeLinecap="round" />
+          </svg>
+          <span className="brand">E-Scholar</span>
+        </button>
+        <nav>
+          <p className="menu-label">{isAdmin ? "Admin" : "Student"}</p>
+          {isAdmin ? (
+            <>
+              <button type="button" className={activePage === "sources" ? "on" : ""} onClick={() => go("sources")}>
+                Sources
+              </button>
+              <button type="button" className={activePage === "chunking" ? "on" : ""} onClick={() => go("chunking")}>
+                Chunking
+              </button>
+            </>
+          ) : (
+            <>
+              <button type="button" className={activePage === "dashboard" ? "on" : ""} onClick={() => go("dashboard")}>
+                Dashboard
+              </button>
+              <button type="button" className={activePage === "advise" ? "on" : ""} onClick={() => go("advise")}>
+                Adviser
+              </button>
+              <button type="button" className={activePage === "plans" ? "on" : ""} onClick={() => go("plans")}>
+                Saved plans
+              </button>
+              <button type="button" className={activePage === "profile" ? "on" : ""} onClick={() => go("profile")}>
+                Profile
+              </button>
+            </>
+          )}
+        </nav>
+        <div className="sidebar-user">
+          <p>{isAdmin ? "Administrator" : account.profile?.student_name || "Student"}</p>
+          <small>{account.user.email}</small>
+          <span className="role-badge">{isAdmin ? "Admin" : "Student"}</span>
+        </div>
+      </aside>
+      <div className="shell-main">
+        <header className="topbar">
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <button type="button" className="menu-toggle" onClick={() => setMenuOpen(true)} aria-label="Open menu">
+              ☰
+            </button>
+            <div>
+              <p className="eyebrow">{isAdmin ? "Administrator" : "Student"}</p>
+              <h1>{titles[activePage] || "Adviser"}</h1>
+            </div>
+          </div>
+          <button type="button" className="avatar-btn" onClick={signOut}>
+            <span className="avatar">{initials}</span>
+            <span>Sign out</span>
+          </button>
+        </header>
+        <main className="content">
+          <p className="crumbs">
+            <strong>{titles[activePage] || "Adviser"}</strong> / {isAdmin ? "Admin" : "Student"}
+          </p>
+          {activePage === "advise" && (
+            <ol className="steps" aria-label="Progress">
+              {["Profile", "Check", "Confirm", "Saved"].map((label, index) => (
+                <li key={label} className={step >= index + 1 ? "on" : ""}>
+                  {label}
+                </li>
+              ))}
+            </ol>
+          )}
+          {pageBody}
+        </main>
+        <footer className="app-footer">
+          <span>{new Date().getFullYear()} © E-Scholar</span>
+          <span>Fictitious catalog. Do not enter real personal data.</span>
+        </footer>
+      </div>
+    </div>
   );
 }
